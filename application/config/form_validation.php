@@ -1,0 +1,275 @@
+<?php
+if (! defined('BASEPATH'))exit('No direct script access allowed');
+
+$config = array(
+			'usadmin_post' =>array(
+				array('field'=>'RDA',
+					'label'=> 'RDA',
+					'rules' => 'trim|required|numeric|min_length[3]|max_length[15]'),
+				array('field'=>'nombre_Completo',
+					'label'=> 'nombre_Completo',
+					'rules' => 'trim|required|min_length[3]|max_length[100]|callback_verificarcadena_ckeck'),
+    			array('field'=>'fcha_nacimiento',
+					'label'=> 'fcha_nacimiento',
+					'rules' => 'required'),
+    			array('field'=>'LugarNac',
+					'label'=> 'LugarNac',
+					'rules' => 'required'),
+    			array('field'=>'direccion',
+					'label'=> 'direccion',
+					'rules' => 'required'),
+    			array('field'=>'cargo',
+					'label'=> 'cargo',
+					'rules' => 'trim|required|min_length[3]|max_length[100]|callback_verificarcadena_ckeck'),
+				array('field'=>'celular',
+					'label'=> 'celular',
+					'rules' => 'trim|required|numeric|min_length[0]|max_length[15]'),
+				array('field'=>'telefono',
+					'label'=> 'telefono',
+					'rules' => 'trim|required|numeric|min_length[0]|max_length[15]'),
+				array('field'=>'email',
+					'label'=> 'email',
+					'rules' => 'required'),
+				array('field'=>'contraseña',
+					'label'=> 'contraseña',
+					'rules' => 'trim|required|min_length[8]|max_length[50]|alpha_numeric'),
+				array('field'=>'tipo_usuario',
+					'label'=> 'tipo_usuario',
+					'rules' => 'trim|required|min_length[0]|max_length[14]|callback_verificaruasurio_ckeck')),
+
+	'modificarusAdmin_post' =>array(
+							array('field'=>'RDA',
+								'label'=> 'RDA',
+								'rules' => 'trim|required|numeric|min_length[3]|max_length[15]'),
+
+							array('field'=>'nombre_Completo',
+								'label'=> 'nombre_Completo',
+								'rules' => 'trim|required|min_length[3]|max_length[100]|callback_verificarcadena_ckeck'),
+
+			    			array('field'=>'fcha_nacimiento',
+								'label'=> 'fcha_nacimiento',
+								'rules' => 'required'),
+
+			    			array('field'=>'LugarNac',
+								'label'=> 'LugarNac',
+								'rules' => 'required'),
+
+			    			array('field'=>'direccion',
+								'label'=> 'direccion',
+								'rules' => 'required'),
+
+			    			array('field'=>'cargo',
+								'label'=> 'cargo',
+								'rules' => 'trim|required|min_length[3]|max_length[100]|callback_verificarcadena_ckeck'),
+
+							array('field'=>'celular',
+								'label'=> 'celular',
+								'rules' => 'trim|required|numeric|min_length[0]|max_length[15]'),
+
+							array('field'=>'telefono',
+								'label'=> 'telefono',
+								'rules' => 'trim|required|numeric|min_length[0]|max_length[15]'),
+
+							array('field'=>'email',
+								'label'=> 'email',
+								'rules' => 'required'),
+
+							array('field'=>'id_Admin',
+								'label'=> 'id_Admin',
+								'rules' => 'trim|required|numeric')),
+
+
+			'cambiarclave_post' =>array(
+							array('field'=>'contraseñaActual',
+								'label'=> 'contraseñaActual',
+								'rules' => 'trim|required|min_length[4]|max_length[50]|alpha_numeric'),
+							array('field'=>'Nuevacontraseña',
+								'label'=> 'Nuevacontraseña',
+								'rules' => 'trim|required|min_length[8]|max_length[50]|alpha_numeric'),
+			    			array('field'=>'confirmacion',
+								'label'=> 'confirmacion',
+								'rules' => 'trim|required|min_length[8]|max_length[50]|alpha_numeric')),
+
+
+// validacion para estudiantes
+
+'usEstu_post' =>array(
+				array('field'=>'RUDE',
+					'label'=> 'RUDE',
+					'rules' => 'trim|required|numeric|min_length[3]|max_length[15]'),
+				array('field'=>'Nombres',
+					'label'=> 'Nombres',
+					'rules' => 'trim|required|min_length[3]|max_length[100]|callback_verificarcadena_ckeck'),
+				array('field'=>'Ap_paterno',
+					'label'=> 'Ap_paterno',
+					'rules' => 'trim|required|min_length[3]|max_length[100]|callback_verificarcadena_ckeck'),
+    			array('field'=>'Ap_materno',
+					'label'=> 'Ap_materno',
+					'rules' => 'trim|required|min_length[3]|max_length[100]|callback_verificarcadena_ckeck'),
+    			array('field'=>'genero',
+					'label'=> 'genero',
+					'rules' => 'required'),
+    			array('field'=>'fcha_nacimiento',
+					'label'=> 'fcha_nacimiento',
+					'rules' => 'required'),
+    			array('field'=>'LugarNac',
+					'label'=> 'LugarNac',
+					'rules' => 'required'),
+    			array('field'=>'direccion_act',
+					'label'=> 'direccion_act',
+					'rules' => 'required'),
+				array('field'=>'celular',
+					'label'=> 'celular',
+					'rules' => 'trim|required|numeric|min_length[0]|max_length[15]'),
+				array('field'=>'email',
+					'label'=> 'email',
+					'rules' => 'required'),
+				array('field'=>'contraseña',
+					'label'=> 'contraseña',
+					'rules' => 'trim|required|min_length[8]|max_length[50]|alpha_numeric'),
+				array('field'=>'tipo_usuario',
+					'label'=> 'tipo_usuario',
+					'rules' => 'trim|required|min_length[0]|max_length[14]|callback_verificaruasurio_ckeck')),
+
+'ModifusEstu_post' =>array(
+				array('field'=>'RUDE',
+					'label'=> 'RUDE',
+					'rules' => 'trim|required|numeric|min_length[3]|max_length[15]'),
+				array('field'=>'Nombres',
+					'label'=> 'Nombres',
+					'rules' => 'trim|required|min_length[3]|max_length[100]|callback_verificarcadena_ckeck'),
+				array('field'=>'Ap_paterno',
+					'label'=> 'Ap_paterno',
+					'rules' => 'trim|required|min_length[3]|max_length[100]|callback_verificarcadena_ckeck'),
+    			array('field'=>'Ap_materno',
+					'label'=> 'Ap_materno',
+					'rules' => 'trim|required|min_length[3]|max_length[100]|callback_verificarcadena_ckeck'),
+    			array('field'=>'genero',
+					'label'=> 'genero',
+					'rules' => 'required'),
+    			array('field'=>'fcha_nacimiento',
+					'label'=> 'fcha_nacimiento',
+					'rules' => 'required'),
+    			array('field'=>'LugarNac',
+					'label'=> 'LugarNac',
+					'rules' => 'required'),
+    			array('field'=>'direccion_act',
+					'label'=> 'direccion_act',
+					'rules' => 'required'),
+				array('field'=>'celular',
+					'label'=> 'celular',
+					'rules' => 'trim|required|numeric|min_length[0]|max_length[15]'),
+				array('field'=>'email',
+					'label'=> 'email',
+					'rules' => 'required'),
+				array('field'=>'id_estudiante',
+						'label'=> 'id_estudiante',
+						'rules' => 'trim|required|numeric')),
+'cambiarclaveestu_post' =>array(
+							array('field'=>'contraseñaActual',
+								'label'=> 'contraseñaActual',
+								'rules' => 'trim|required|min_length[4]|max_length[50]|alpha_numeric'),
+							array('field'=>'Nuevacontraseña',
+								'label'=> 'Nuevacontraseña',
+								'rules' => 'trim|required|min_length[8]|max_length[50]|alpha_numeric'),
+			    			array('field'=>'confirmacion',
+								'label'=> 'confirmacion',
+								'rules' => 'trim|required|min_length[8]|max_length[50]|alpha_numeric')),
+
+
+
+
+
+// validacion para docentes
+
+	'usDocente_post'=> array(
+						 array('field'=>'RDA',
+							'label'=> 'RDA',
+							'rules' => 'trim|required|numeric|min_length[3]|max_length[15]'),
+						array('field'=>'nombre_Completo',
+							'label'=> 'nombre_Completo',
+							'rules' => 'trim|required|min_length[3]|max_length[100]|callback_verificarcadena_ckeck'),
+		    			array('field'=>'fcha_nacimiento',
+							'label'=> 'fcha_nacimiento',
+							'rules' => 'required'),
+		    			array('field'=>'lugarNaci',
+							'label'=> 'lugarNaci',
+							'rules' => 'required'),
+		    			array('field'=>'DireccionAct',
+							'label'=> 'DireccionAct',
+							'rules' => 'required'),
+		    			array('field'=>'telefono',
+							'label'=> 'telefono',
+							'rules' => 'trim|required|numeric|min_length[0]|max_length[15]'),
+						array('field'=>'celular',
+							'label'=> 'celular',
+							'rules' => 'trim|required|numeric|min_length[0]|max_length[15]'),
+						array('field'=>'email',
+							'label'=> 'email',
+							'rules' => 'required'),
+						array('field'=>'profession',
+							'label'=> 'profession',
+							'rules' => 'required'),
+						array('field'=>'contraseña',
+							'label'=> 'contraseña',
+							'rules' => 'trim|required|min_length[8]|max_length[50]|alpha_numeric'),
+						array('field'=>'tipo_usuario',
+							'label'=> 'tipo_usuario',
+							'rules' => 'required')),
+
+	'ModifusDocente_post' =>array(
+					array('field'=>'RDA',
+						'label'=> 'RDA',
+						'rules' => 'trim|required|numeric|min_length[3]|max_length[15]'),
+
+					array('field'=>'nombre_Completo',
+						'label'=> 'nombre_Completo',
+						'rules' => 'trim|required|min_length[3]|max_length[100]|callback_verificarcadena_ckeck'),
+
+	    			array('field'=>'fcha_nacimiento',
+						'label'=> 'fcha_nacimiento',
+						'rules' => 'required'),
+
+	    			array('field'=>'lugarNaci',
+						'label'=> 'lugarNaci',
+						'rules' => 'required'),
+
+	    			array('field'=>'DireccionAct',
+						'label'=> 'DireccionAct',
+						'rules' => 'required'),
+
+	    			array('field'=>'telefono',
+						'label'=> 'telefono',
+						'rules' => 'trim|required|numeric|min_length[0]|max_length[15]'),
+
+					array('field'=>'celular',
+						'label'=> 'celular',
+						'rules' => 'trim|required|numeric|min_length[0]|max_length[15]'),
+
+					array('field'=>'email',
+						'label'=> 'email',
+						'rules' => 'required'),
+
+					array('field'=>'profession',
+						'label'=> 'profession',
+						'rules' => 'required'),
+
+					array('field'=>'id_docente',
+							'label'=> 'id_docente',
+							'rules' => 'trim|required|numeric')),
+
+'cambiarclaveDocente_post' =>array(
+							array('field'=>'contraseñaActual',
+								'label'=> 'contraseñaActual',
+								'rules' => 'trim|required|min_length[4]|max_length[50]|alpha_numeric'),
+							array('field'=>'Nuevacontraseña',
+								'label'=> 'Nuevacontraseña',
+								'rules' => 'trim|required|min_length[8]|max_length[50]|alpha_numeric'),
+			    			array('field'=>'confirmacion',
+								'label'=> 'confirmacion',
+								'rules' => 'trim|required|min_length[8]|max_length[50]|alpha_numeric')));
+
+
+
+
+?>
